@@ -13,7 +13,7 @@ $_SESSION['email'] = 'john@example.com';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProRides - Vehicle Rental System</title>
+    <title>Booking Page</title>
     <link rel="stylesheet" href="./styles/booking.css">
 </head>
 
@@ -26,7 +26,7 @@ $_SESSION['email'] = 'john@example.com';
         <a href="listing.php" class="back-button">Back</a>
         <div class="booking">
             <h2>Booking Details</h2>
-            <form action="confirm.php" method="post">
+            <form id="booking_form" action="checkout.php" method="post">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
@@ -47,7 +47,8 @@ $_SESSION['email'] = 'john@example.com';
                 <div class="total-price">
                     <p>Total Price:</p>
                 </div>
-                <input type="submit" value="Confirm Booking">
+                <input type="hidden" id="price_variable" name="price_variable">
+                <input type="submit" value="Confirm Booking" onclick="submitForm()">
             </form>
         </div>
     </section>
@@ -72,10 +73,25 @@ $_SESSION['email'] = 'john@example.com';
             const diffTime = Math.abs(end - start);
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
             totalPrice.textContent = `Total Price: Rs.${diffDays * price_per_day}`;
+
+            document.getElementById('price_variable').value = diffDays * price_per_day;
+
             if (driverneeded.querySelector('input:checked').value === 'yes') {
                 totalPrice.textContent += ' + Rs.5000 (Driver Fee)';
+                document.getElementById('price_variable').value = parseInt(document.getElementById('price_variable').value) + 5000;
             }
+
         }
+
+
+
+        function submitForm() {
+            document.getElementById('booking_form').submit();
+        };
+
+
+
+
     </script>
 
 
