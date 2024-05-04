@@ -80,8 +80,15 @@ a:hover {
     background-color: #555;
 }
 
-
-
+.book-button {
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    height: 10%;
+    margin-top: 10px;
+    margin-right: 10px;
+}
 
 /*Footer Section CSS*/
 

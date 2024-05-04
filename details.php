@@ -30,6 +30,7 @@ include 'header.php';
                 <p>Color: XXX</p>
                 <!-- Add more details as needed -->
             </div>
+            <a href="booking.php" class="book-button">Book Now</a>
         </div>
     </section>
 
