@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'header.php';
+require 'header.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +17,6 @@ include 'header.php';
 
 
     <!-- Checkout Section -->
-
-    <!-- Checkout Section -->
     <section id="checkout">
         <h2>Checkout</h2>
 
@@ -27,16 +25,22 @@ include 'header.php';
         <p>Name: <?php echo $_POST['name']; ?></p>
         <p>Email: <?php echo $_POST['email']; ?></p>
 
+        <?php $name = $_POST['name']; ?>
+        <?php $email = $_POST['email']; ?>
+
+        
         <!-- Form to collect card details -->
         <form action="process_checkout.php" method="post">
+            <input type="hidden" id="name" name="name" value="<?php echo $name; ?>">
+            <input type="hidden" id="email" name="email" value="<?php echo $email; ?>">
             <label for="card-number">Card Number:</label>
             <input type="text" id="card-number" name="card-number" required>
             <label for="expiry-date">Expiry Date:</label>
             <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
             <label for="cvv">CVV:</label>
             <input type="text" id="cvv" name="cvv" required>
-            <!-- Display total price -->
-            <p>Total Price: <?php echo $_POST["price_variable"] ?> </p> <!-- Replace XXX with actual total price -->
+            <p>Total Price: <?php echo $_POST["price_variable"] ?> </p>
+            <input type="hidden" id="total-price" name="total-price" value="<?php echo $_POST["price_variable"] ?>">
             <input type="submit" value="Submit Payment">
         </form>
     </section>
