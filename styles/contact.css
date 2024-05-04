@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+
+/*Links*/
+
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: #555;
+}
+
+
+
+/*Contact Form*/
+
+#contact {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+#contact h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+#contact-methods {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+.contact-method {
+    width: 30%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-method h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.contact-method a {
+    background-color: transparent;
+    color: #333;
+    text-decoration: underline;
+}
+
+
+#inquiry-form {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+#inquiry-form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#inquiry-form input,
+#inquiry-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+
+}
+
+#inquiry-form input:focus,
+#inquiry-form textarea:focus {
+    border-color: #333;
+}
+
+#inquiry-form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+#inquiry-form button:hover {
+    background-color: #555;
+}
+
+#google-maps {
+    width: 100%;
+}
+
+
+/*Footer Section CSS*/
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#logodescription_links_contactinfo {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#footer_left {
+    flex: 1;
+    max-width: 300px;
+    text-align: left;
+}
+
+#logo__footer {
+    max-width: 100px;
+}
+
+#footer_center {
+    flex: 1;
+    max-width: 400px;
+    text-align: center;
+}
+
+#footer_links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+#socialmediaicons {
+    margin-top: 20px;
+}
+
+#socialmediaicons a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#socialmediaicons img {
+    max-width: 30px;
+}
+
+#footer_right {
+    flex: 1;
+    max-width: 300px;
+    text-align: right;
+}
+
+#contact_info p {
+    margin-bottom: 10px;
+}
