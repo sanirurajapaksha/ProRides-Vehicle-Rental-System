@@ -10,14 +10,3 @@ function createUser($conn, $firstname, $lastname, $username, $email, $password)
         return false;
     }
 }
-
-function createOrder($conn, $user_id, $vehicle_id, $start_date, $end_date, $driver_needed, $total_price)
-{
-    $sql = "INSERT INTO orders (user_id, vehicle_id, start_date, end_date, driver_needed, total_price) VALUES ('$user_id', '$vehicle_id', '$start_date', '$end_date', '$driver_needed', '$total_price')";
-    $result = $conn->query($sql);
-    if ($result) {
-        return true;
-    } else {
-        return false;
-    }
-}

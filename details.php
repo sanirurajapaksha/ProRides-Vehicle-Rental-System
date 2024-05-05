@@ -1,6 +1,15 @@
 <?php
 session_start();
 include 'header.php';
+
+$year = $_GET['year'];
+$price = $_GET['price'];
+$description = $_GET['description'];
+$model = $_GET['model'];
+$vehicleid = $_GET['vehicleid'];
+$vehicleimage = $_GET['vehicleimage'];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -21,16 +30,16 @@ include 'header.php';
     <section id="vehicle-details">
         <a href="listing.php" class="back-button">Back</a>
         <div class="vehicle">
-            <img src="/assets/sedan.jpg" alt="Vehicle 1">
+            <img src="<?php echo $vehicleimage ?>" alt="Vehicle 1">
             <div class="vehicle-info">
-                <h2>Vehicle 1</h2>
-                <p>Description of Vehicle 1.</p>
-                <p>Price: $XXX per day</p>
-                <p>Year: XXXX</p>
-                <p>Color: XXX</p>
-                <!-- Add more details as needed -->
+                <h2><?php echo "$model" ?></h2>
+                <p>Price: Rs. <?php echo "$price" ?> per day</p>
+                <p>Year: <?php echo "$year" ?></p>
+                <p>
+
             </div>
-            <a href="booking.php" class="book-button">Book Now</a>
+            <a href="booking.php?vehicleid=<?php echo $vehicleid; ?>&vehiclename=<?php echo $model ?>?price=<?php echo $price ?>"
+                class="book-button">Book Now</a>
         </div>
     </section>
 

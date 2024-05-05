@@ -30,8 +30,8 @@ include 'header.php';
         <div class="vehicle">
             <img src="/assets/sedan.jpg" alt="Vehicle 1">
             <div class="vehicle-details">
-                <h2>Vehicle 1</h2>
-                <p>Description of Vehicle 1.</p>
+                <h2><?php echo "$model" . " " . "$year" ?> </h2>
+                <p>Price: <?php echo "$price" ?></p>
                 <button class="vehicle_button">View Details</button>
             </div>
         </div>
@@ -39,8 +39,8 @@ include 'header.php';
         <div class="vehicle">
             <img src="/assets/sedan.jpg" alt="Vehicle 1">
             <div class="vehicle-details">
-                <h2>Vehicle 1</h2>
-                <p>Description of Vehicle 1.</p>
+                <h2><?php echo "$model" . " " . "$year" ?> </h2>
+                <p>Price: <?php echo "$price" ?></p>
                 <button class="vehicle_button">View Details</button>
             </div>
         </div>
@@ -48,8 +48,8 @@ include 'header.php';
         <div class="vehicle">
             <img src="/assets/sedan.jpg" alt="Vehicle 1">
             <div class="vehicle-details">
-                <h2>Vehicle 1</h2>
-                <p>Description of Vehicle 1.</p>
+                <h2><?php echo "$model" . " " . "$year" ?> </h2>
+                <p>Price: <?php echo "$price" ?></p>
                 <button class="vehicle_button">View Details</button>
             </div>
         </div>
@@ -57,8 +57,8 @@ include 'header.php';
         <div class="vehicle">
             <img src="/assets/sedan.jpg" alt="Vehicle 1">
             <div class="vehicle-details">
-                <h2>Vehicle 1</h2>
-                <p>Description of Vehicle 1.</p>
+                <h2><?php echo "$model" . " " . "$year" ?> </h2>
+                <p>Price: <?php echo "$price" ?></p>
                 <button class="vehicle_button">View Details</button>
             </div>
         </div>

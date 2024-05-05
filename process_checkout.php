@@ -3,7 +3,6 @@
 session_start();
 
 require_once 'includes/database.php';
-require_once 'includes/functions.inc.php';
 
 $name = $_POST['name'];
 // $userid = $_SESSION['userid'];
