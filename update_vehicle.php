@@ -10,31 +10,27 @@ if (isset($_GET['id'])) {
     if (mysqli_num_rows($result_fetch) > 0) {
         $vehicle = mysqli_fetch_assoc($result_fetch);
 
-        $sql_update = "";
-
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-            $vehicle_model = $_POST['model'];
-            $vehicle_type = $_POST['type'];
-            $year_manufacture = $_POST['year'];
+            $vehicle_model = $_POST['vehicle_model'];
+            $vehicle_type = $_POST['vehicle_type'];
+            $year_manufacture = $_POST['year_manufacture'];
             $price = $_POST['price'];
 
-
+            // Construct the SQL update query
             $sql_update = "UPDATE vehicle SET model='$vehicle_model', type='$vehicle_type', year='$year_manufacture', price='$price' WHERE vehicleid=$vehicle_id";
 
-
-            if (!empty($sql_update)) {
-                if (mysqli_query($conn, $sql_update)) {
-                    header("Location: view_vehicle.php");
-                    exit();
-                } else {
-                    echo "Error updating record: " . mysqli_error($conn);
-                }
+            // Execute the update query
+            if (mysqli_query($conn, $sql_update)) {
+                header("Location: view_vehicle.php");
+                exit();
+            } else {
+                echo "Error updating record: " . mysqli_error($conn);
             }
         }
 
     }
 }
+
 
 ?>
 <!DOCTYPE html>
