@@ -28,7 +28,7 @@ require 'header.php';
         <?php $name = $_POST['name']; ?>
         <?php $email = $_POST['email']; ?>
 
-        
+
         <!-- Form to collect card details -->
         <form action="process_checkout.php" method="post">
             <input type="hidden" id="name" name="name" value="<?php echo $name; ?>">
@@ -41,6 +41,9 @@ require 'header.php';
             <input type="text" id="cvv" name="cvv" required>
             <p>Total Price: <?php echo $_POST["price_variable"] ?> </p>
             <input type="hidden" id="total-price" name="total-price" value="<?php echo $_POST["price_variable"] ?>">
+            <input type="hidden" id="vehicleid" name="vehicleid" value="<?php echo $_POST["vehicleid"] ?>">
+            <input type="hidden" id="model" name="model" value="<?php echo $_POST["model"] ?>">
+            <input type="userid" id="userid" name="userid" value="<?php echo $_SESSION["userid"] ?>">
             <input type="submit" value="Submit Payment">
         </form>
     </section>

@@ -14,9 +14,7 @@ $totalPrice = $_POST['total-price'];
 $sql = "INSERT INTO orders (orderid, userid, vehicleid, name, email, total_price) VALUES ('$orderid','$userid', '$vehicleid', '$name', '$email', '$totalPrice')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "<script> window.alert('Order Placed Successfully') </script>";
-    header("Location: index.php");
+    echo "<script> var true_or_false = window.confirm('Order Placed Successfully'); if(true_or_false == true){window.location.href = 'index.php'} </script>";
 } else {
-    echo "<script> window.alert('Error Occured While Placing the Order') </script>";
-    header("Location: index.php");
+    echo "<script> var true_or_false = window.cofirm('Error Occured While Placing the Order'); if(true_or_false == false){window.location.href = 'index.php'}</script>";
 }

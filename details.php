@@ -4,7 +4,6 @@ include 'header.php';
 
 $year = $_GET['year'];
 $price = $_GET['price'];
-$description = $_GET['description'];
 $model = $_GET['model'];
 $vehicleid = $_GET['vehicleid'];
 $vehicleimage = $_GET['vehicleimage'];

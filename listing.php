@@ -1,8 +1,18 @@
 <?php
 session_start();
-include 'header.php';
-?>
+require 'header.php';
+require 'includes/database.php';
 
+$sql = "SELECT * FROM vehicle";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    $vehicles = $result->fetch_all(MYSQLI_ASSOC);
+} else {
+    $vehicles = [];
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,66 +27,33 @@ include 'header.php';
 <body>
 
     <!-- Vehicle Listings Section -->
-
     <section id="vehicle-listing">
-
-
-        <script>
-            // Add a loop to diplay the vehicle listings
-
-
-        </script>
-
-        <div class="vehicle">
-            <img src="/assets/sedan.jpg" alt="Vehicle 1">
-            <div class="vehicle-details">
-                <h2><?php echo "$model" . " " . "$year" ?> </h2>
-                <p>Price: <?php echo "$price" ?></p>
-                <button class="vehicle_button">View Details</button>
+        <?php foreach ($vehicles as $vehicle): ?>
+            <div class="vehicle">
+                <img src="<?php echo $vehicle['vehicleimage']; ?>" alt="Vehicleimg">
+                <div class="vehicle-details">
+                    <h2><?php echo $vehicle['model']; ?></h2>
+                    <p>Price: <?php echo $vehicle['price']; ?></p>
+                    <a class="vehicle_button"
+                        href="details.php?vehicleid=<?php echo $vehicle['vehicleid']; ?>&model=<?php echo $vehicle['model']; ?>&price=<?php echo $vehicle['price']; ?>&year=<?php echo $vehicle['year']; ?>&vehicleimage=<?php echo $vehicle['vehicleimage']; ?>">View
+                        Details</a>
+                </div>
             </div>
-        </div>
-
-        <div class="vehicle">
-            <img src="/assets/sedan.jpg" alt="Vehicle 1">
-            <div class="vehicle-details">
-                <h2><?php echo "$model" . " " . "$year" ?> </h2>
-                <p>Price: <?php echo "$price" ?></p>
-                <button class="vehicle_button">View Details</button>
-            </div>
-        </div>
-
-        <div class="vehicle">
-            <img src="/assets/sedan.jpg" alt="Vehicle 1">
-            <div class="vehicle-details">
-                <h2><?php echo "$model" . " " . "$year" ?> </h2>
-                <p>Price: <?php echo "$price" ?></p>
-                <button class="vehicle_button">View Details</button>
-            </div>
-        </div>
-
-        <div class="vehicle">
-            <img src="/assets/sedan.jpg" alt="Vehicle 1">
-            <div class="vehicle-details">
-                <h2><?php echo "$model" . " " . "$year" ?> </h2>
-                <p>Price: <?php echo "$price" ?></p>
-                <button class="vehicle_button">View Details</button>
-            </div>
-        </div>
-        <!-- Add more vehicles as needed -->
+        <?php endforeach; ?>
     </section>
 
+    <!-- JavaScript for button click -->
 
-    <script>
+    <!-- <script>
         document.querySelectorAll('.vehicle_button').forEach((button) => {
             button.addEventListener('click', () => {
-                window.location.href = 'details.php';
+                // Redirect to vehicle details page
+                window.location.href =
             });
-        });
-    </script>
-
+        })
+    </script> -->
 
     <!-- Footer Section -->
-
     <footer>
         <div id="logodescription_links_contactinfo">
             <div id="footer_left">
