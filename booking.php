@@ -110,8 +110,8 @@ $_SESSION['email'] = 'john@example.com';
                 <div id="footer_links">
                     <a href="index.php">Home</a>
                     <a href="contact.php">Contact Us</a>
-                    <a href="policy.php">Privacy Policy</a>
-                    <a href="terms.php">Terms and Conditions</a>
+                    <a href="privacypolicy.php">Privacy Policy</a>
+                    <a href="termsncondition.php">Terms and Conditions</a>
                 </div>
                 <div id="socialmediaicons">
                     <a href="#"><img src="./assets/facebook.png" alt="Facebook"></a>

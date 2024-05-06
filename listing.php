@@ -65,10 +65,10 @@ if ($result->num_rows > 0) {
             </div>
             <div id="footer_center">
                 <div id="footer_links">
-                    <a href="#">Home</a>
-                    <a href="#">Contact Us</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms and Conditions</a>
+                    <a href="index.php">Home</a>
+                    <a href="contact.php">Contact Us</a>
+                    <a href="privacypolicy.php">Privacy Policy</a>
+                    <a href="termsncondition.php">Terms and Conditions</a>
                 </div>
                 <div id="socialmediaicons">
                     <a href="#"><img src="./assets/facebook.png" alt="Facebook"></a>

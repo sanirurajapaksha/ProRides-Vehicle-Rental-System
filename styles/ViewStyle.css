@@ -1,0 +1,123 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.vehicle {
+    display: flex;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    align-items: flex-start; /* Make the image fit to the left side */
+    background-color: #fff; /* Light color background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.vehicle img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 8px; /* Adjust border radius for the image */
+    border-bottom-left-radius: 8px;
+}
+
+.vehicle-details {
+    padding: 20px;
+    flex: 1;
+}
+
+.vehicle h3 {
+    margin-top: 0;
+}
+
+.vehicle p {
+    margin: 0;
+}
+
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+    background-color: #45a049;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #dd1919;
+}
+
+.add-vehicle-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px; /* Add margin to separate the button from the vehicles list */
+}
+
+.add-vehicle-button:hover {
+    background-color: #0056b3;
+}
+
+header,
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+#logo__header,
+#logo_footer {
+    width: 150px;
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+body {
+    background-color: #cfcfcf; 
+}  
