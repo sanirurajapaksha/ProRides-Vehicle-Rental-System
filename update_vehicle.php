@@ -1,22 +1,17 @@
 <?php
 include 'includes/database.php';
 
-// Check if vehicle ID is provided in the URL
 if (isset($_GET['id'])) {
     $vehicle_id = $_GET['id'];
 
-    // Fetch vehicle details from the database based on vehicle ID
     $sql_fetch = "SELECT * FROM vehicle WHERE vehicleid = $vehicle_id";
     $result_fetch = mysqli_query($conn, $sql_fetch);
 
-    // Check if vehicle exists
     if (mysqli_num_rows($result_fetch) > 0) {
         $vehicle = mysqli_fetch_assoc($result_fetch);
 
-        // Initialize the update query variable
         $sql_update = "";
 
-        // Check if the form is submitted
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $vehicle_model = $_POST['model'];
@@ -28,7 +23,6 @@ if (isset($_GET['id'])) {
             $sql_update = "UPDATE vehicle SET model='$vehicle_model', type='$vehicle_type', year='$year_manufacture', price='$price' WHERE vehicleid=$vehicle_id";
 
 
-            // Execute the update query if not empty
             if (!empty($sql_update)) {
                 if (mysqli_query($conn, $sql_update)) {
                     header("Location: view_vehicle.php");
@@ -60,7 +54,6 @@ if (isset($_GET['id'])) {
         <form id="update-vehicle-form" action="update_vehicle.php?id=<?php echo $vehicle_id; ?>" method="post"
             enctype="multipart/form-data">
             <input type="hidden" name="vehicle_id" value="<?php echo $vehicle_id; ?>">
-            <!-- Hidden input field to store vehicle ID -->
             <div class="form-group">
                 <label for="vehicle_model">Vehicle Model:</label><br>
                 <input type="text" id="vehicle_model" name="vehicle_model" value="<?php echo $vehicle['model']; ?>"
