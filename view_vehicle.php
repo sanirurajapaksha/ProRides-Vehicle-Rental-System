@@ -29,7 +29,7 @@
         <a href="add_vehicle.php" class="add-vehicle-button">Add Vehicle</a>
         <div class="vehicles-list">
             <?php
-            include '.inlcudes/database.php';
+            include 'includes/database.php';
 
             $sql = "SELECT * FROM vehicle";
             $result = mysqli_query($conn, $sql);
@@ -38,15 +38,14 @@
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='vehicle'>";
-                    echo "<img src='" . $row["image_url"] . "' alt='Vehicle Image'>";
+                    echo "<img src='" . $row["vehicleimage"] . "' alt='Vehicle Image'>";
                     echo "<div class='vehicle-details'>";
-                    echo "<h3>" . $row["vehicle_model"] . "</h3>";
-                    echo "<p><strong>Type:</strong> " . $row["vehicle_type"] . "</p>";
-                    echo "<p><strong>Year of Manufacture:</strong> " . $row["year_manufacture"] . "</p>";
-                    echo "<p><strong>Description:</strong> " . $row["description"] . "</p>";
-                    echo "<p><strong>Price:</strong> $" . $row["price"] . "</p>";
-                    echo "<a href='update_vehicle.php?id=" . $row["vehicle_id"] . "' class='edit-button'>Edit</a>";
-                    echo "<button onclick='deleteVehicle(" . $row["vehicle_id"] . ")' class='delete-button'>Delete</button>";
+                    echo "<h3>" . $row["model"] . "</h3>";
+                    echo "<p><strong>Type:</strong> " . $row["type"] . "</p>";
+                    echo "<p><strong>Year of Manufacture:</strong> " . $row["year"] . "</p>";
+                    echo "<p><strong>Price:</strong> Rs." . $row["price"] . "</p>";
+                    echo "<a href='update_vehicle.php?id=" . $row["vehicleid"] . "' class='edit-button'>Edit</a>";
+                    echo "<button onclick='deleteVehicle(" . $row["vehicleid"] . ")' class='delete-button'>Delete</button>";
                     echo "</div>";
                     echo "</div>";
                 }
@@ -55,7 +54,6 @@
             }
 
 
-            mysqli_close($conn);
             ?>
         </div>
     </div>

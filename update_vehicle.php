@@ -1,12 +1,12 @@
 <?php
-include 'database.php'; // Include the database connection file
+include 'includes/database.php';
 
 // Check if vehicle ID is provided in the URL
 if (isset($_GET['id'])) {
     $vehicle_id = $_GET['id'];
 
     // Fetch vehicle details from the database based on vehicle ID
-    $sql_fetch = "SELECT * FROM vehicles WHERE vehicle_id = $vehicle_id";
+    $sql_fetch = "SELECT * FROM vehicle WHERE vehicleid = $vehicle_id";
     $result_fetch = mysqli_query($conn, $sql_fetch);
 
     // Check if vehicle exists
@@ -19,26 +19,14 @@ if (isset($_GET['id'])) {
         // Check if the form is submitted
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            $vehicle_model = $_POST['vehicle_model'];
-            $vehicle_type = $_POST['vehicle_type'];
-            $year_manufacture = $_POST['year_manufacture'];
-            $description = $_POST['description'];
+            $vehicle_model = $_POST['model'];
+            $vehicle_type = $_POST['type'];
+            $year_manufacture = $_POST['year'];
             $price = $_POST['price'];
 
-            // Check if a new image is uploaded
-            if ($_FILES['image']['size'] > 0) {
-                $target_dir = "uploads/"; // Directory where images will be saved
-                $target_file = $target_dir . basename($_FILES["image"]["name"]);
-                if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                    // Update query with image URL
-                    $sql_update = "UPDATE vehicles SET vehicle_model='$vehicle_model', vehicle_type='$vehicle_type', year_manufacture='$year_manufacture', description='$description', price='$price', image_url='$target_file' WHERE vehicle_id=$vehicle_id";
-                } else {
-                    echo "Sorry, there was an error uploading your file.";
-                }
-            } else {
-                // Update query without image URL
-                $sql_update = "UPDATE vehicles SET vehicle_model='$vehicle_model', vehicle_type='$vehicle_type', year_manufacture='$year_manufacture', description='$description', price='$price' WHERE vehicle_id=$vehicle_id";
-            }
+
+            $sql_update = "UPDATE vehicle SET model='$vehicle_model', type='$vehicle_type', year='$year_manufacture', price='$price' WHERE vehicleid=$vehicle_id";
+
 
             // Execute the update query if not empty
             if (!empty($sql_update)) {
@@ -52,7 +40,8 @@ if (isset($_GET['id'])) {
         }
 
     }
-} // Display form with vehicle details for editing
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,31 +63,25 @@ if (isset($_GET['id'])) {
             <!-- Hidden input field to store vehicle ID -->
             <div class="form-group">
                 <label for="vehicle_model">Vehicle Model:</label><br>
-                <input type="text" id="vehicle_model" name="vehicle_model"
-                    value="<?php echo $vehicle['vehicle_model']; ?>" required>
+                <input type="text" id="vehicle_model" name="vehicle_model" value="<?php echo $vehicle['model']; ?>"
+                    required>
             </div>
             <div class="form-group">
                 <label for="vehicle_type">Vehicle Type:</label><br>
-                <input type="text" id="vehicle_type" name="vehicle_type" value="<?php echo $vehicle['vehicle_type']; ?>"
+                <input type="text" id="vehicle_type" name="vehicle_type" value="<?php echo $vehicle['type']; ?>"
                     required>
             </div>
             <div class="form-group">
                 <label for="year_manufacture">Year of Manufacture:</label><br>
                 <input type="number" id="year_manufacture" name="year_manufacture"
-                    value="<?php echo $vehicle['year_manufacture']; ?>" required>
+                    value="<?php echo $vehicle['year']; ?>" required>
             </div>
-            <div class="form-group">
-                <label for="description">Description:</label><br>
-                <textarea id="description" name="description" required><?php echo $vehicle['description']; ?></textarea>
-            </div>
+
             <div class="form-group">
                 <label for="price">Price:</label><br>
                 <input type="number" id="price" name="price" value="<?php echo $vehicle['price']; ?>" required>
             </div>
-            <div class="form-group">
-                <label for="image">Vehicle Image:</label><br>
-                <input type="file" name="image" id="image">
-            </div>
+
             <div class="form-group">
                 <button type="submit">Update</button>
             </div>
