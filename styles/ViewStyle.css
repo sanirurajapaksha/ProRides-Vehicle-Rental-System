@@ -9,16 +9,20 @@
     margin-bottom: 20px;
     border-radius: 8px;
     overflow: hidden;
-    align-items: flex-start; /* Make the image fit to the left side */
-    background-color: #fff; /* Light color background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    align-items: flex-start;
+    /* Make the image fit to the left side */
+    background-color: #fff;
+    /* Light color background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add shadow */
 }
 
 .vehicle img {
     width: 200px;
     height: 200px;
     object-fit: cover;
-    border-top-left-radius: 8px; /* Adjust border radius for the image */
+    border-top-left-radius: 8px;
+    /* Adjust border radius for the image */
     border-bottom-left-radius: 8px;
 }
 
@@ -80,7 +84,8 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-bottom: 20px; /* Add margin to separate the button from the vehicles list */
+    margin-bottom: 20px;
+    /* Add margin to separate the button from the vehicles list */
 }
 
 .add-vehicle-button:hover {
@@ -119,5 +124,5 @@ nav ul li a {
 }
 
 body {
-    background-color: #cfcfcf; 
-}  
+    background-color: #cfcfcf;
+}
