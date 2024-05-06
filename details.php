@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include 'header.php';
 
@@ -8,6 +9,13 @@ $model = $_GET['model'];
 $vehicleid = $_GET['vehicleid'];
 $vehicleimage = $_GET['vehicleimage'];
 
+// Check if user is logged in
+if (!isset($_SESSION['email']) || empty($_SESSION['email'])) {
+
+    header("Location: login.php");
+    exit();
+
+}
 
 ?>
 

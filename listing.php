@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require 'header.php';
 require 'includes/database.php';
@@ -7,9 +8,13 @@ $sql = "SELECT * FROM vehicle";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
+
     $vehicles = $result->fetch_all(MYSQLI_ASSOC);
+
 } else {
+
     $vehicles = [];
+
 }
 
 ?>

@@ -2,8 +2,9 @@
 session_start();
 include 'header.php';
 
-$_SESSION['price_per_day'] = 5000;
-$_SESSION['email'] = 'john@example.com';
+$model = $_GET['vehiclename'];
+$vehicle_id = $_GET['vehicleid'];
+
 
 ?>
 
@@ -48,6 +49,8 @@ $_SESSION['email'] = 'john@example.com';
                     <p>Total Price:</p>
                 </div>
                 <input type="hidden" id="price_variable" name="price_variable">
+                <input type="hidden" id="vehicleid" name="vehicleid" value="<?php echo $vehicle_id; ?>">
+                <input type="hidden" id="model" name="model" value="<?php echo $model; ?>">
                 <input type="submit" value="Confirm Booking" onclick="submitForm()">
             </form>
         </div>
@@ -83,7 +86,7 @@ $_SESSION['email'] = 'john@example.com';
 
         }
 
-        
+
 
 
         function submitForm() {

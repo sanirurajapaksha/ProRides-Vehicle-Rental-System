@@ -10,7 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $price = $_POST['price'];
 
 
-    $sql = "INSERT INTO vehicle (model, type, year, price, vehicleimage) VALUES ('$vehicle_model', '$vehicle_type', '$year_manufacture', '$price', 'https://picsum.photos/300/200')";
+    // A placeholder image is used for the vehicle image since we are not uploading images in this project
+    $sql = "INSERT INTO vehicle (model, type, year, price, vehicleimage) VALUES ('$vehicle_model', '$vehicle_type', '$year_manufacture', '$price', 'https://placehold.co/600x400/EEE/31343C')";
 
     if (mysqli_query($conn, $sql)) {
         header("Location: view_vehicle.php");

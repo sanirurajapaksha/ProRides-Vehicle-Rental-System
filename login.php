@@ -1,6 +1,28 @@
 <?php
 session_start();
 include 'header.php';
+include 'includes/database.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
+    $result = mysqli_query($conn, $sql);
+
+    // Check if user exists and password is correct
+    if (mysqli_num_rows($result) == 1) {
+
+        $_SESSION['email'] = $email;
+        $_SESSION['userid'] = $result->fetch_assoc()['userid'];
+
+        header("Location: listing.php");
+        exit();
+    } else {
+        $error = "Invalid email or password. Please try again.";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +42,9 @@ include 'header.php';
     <section id="login">
         <div id="login-form">
             <h2>Log In</h2>
+            <?php if (isset($error)): ?>
+                <p><?php echo $error; ?></p>
+            <?php endif; ?>
             <form action="login.php" method="POST">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>

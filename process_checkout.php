@@ -5,10 +5,11 @@ session_start();
 require_once 'includes/database.php';
 
 $name = $_POST['name'];
-// $userid = $_SESSION['userid'];
-// $vehicleid = $_SESSION['vehicleid'];
+$userid = $_SESSION['userid'];
+$vehicleid = $_POST['vehicleid'];
 $email = $_POST['email'];
 $totalPrice = $_POST['total-price'];
+$model = $_POST['model'];
 
 
 $sql = "INSERT INTO orders (orderid, userid, vehicleid, name, email, total_price) VALUES ('$orderid','$userid', '$vehicleid', '$name', '$email', '$totalPrice')";

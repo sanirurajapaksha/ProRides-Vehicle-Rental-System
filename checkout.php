@@ -1,6 +1,9 @@
 <?php
 session_start();
 require 'header.php';
+
+$userid = $_SESSION['userid'];
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +46,7 @@ require 'header.php';
             <input type="hidden" id="total-price" name="total-price" value="<?php echo $_POST["price_variable"] ?>">
             <input type="hidden" id="vehicleid" name="vehicleid" value="<?php echo $_POST["vehicleid"] ?>">
             <input type="hidden" id="model" name="model" value="<?php echo $_POST["model"] ?>">
-            <input type="userid" id="userid" name="userid" value="<?php echo $_SESSION["userid"] ?>">
+            <input type="hidden" id="userid" name="userid" value="<?php echo "$userid" ?>">
             <input type="submit" value="Submit Payment">
         </form>
     </section>
