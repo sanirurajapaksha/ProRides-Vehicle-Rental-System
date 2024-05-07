@@ -29,7 +29,16 @@
         <a href="add_vehicle.php" class="add-vehicle-button">Add Vehicle</a>
         <div class="vehicles-list">
             <?php
+
+
             include 'includes/database.php';
+            session_start();
+
+            echo $_SESSION['$role'];
+
+            if (!isset($_SESSION['$role']) || $_SESSION['$role'] == 'user') {
+                echo "<p>You do not have permission to view this page.</p>";
+            }
 
             $sql = "SELECT * FROM vehicle";
             $result = mysqli_query($conn, $sql);

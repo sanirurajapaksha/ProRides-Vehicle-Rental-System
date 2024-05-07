@@ -1,7 +1,8 @@
 <?php
-session_start();
+
 include 'header.php';
 include 'includes/database.php';
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -14,10 +15,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if user exists and password is correct
     if (mysqli_num_rows($result) == 1) {
 
-        $_SESSION['email'] = $email;
-        $_SESSION['userid'] = $result->fetch_assoc()['userid'];
+        $row = mysqli_fetch_assoc($result);
 
-        header("Location: listing.php");
+        $_SESSION['email'] = $email;
+        $_SESSION['userid'] = $row['userid'];
+
+        if ($row['$role'] == 'admin') {
+            header("Location: view_vehicle.php");
+        } else {
+            header("Location: listing.php");
+        }
+
         exit();
     } else {
         $error = "Invalid email or password. Please try again.";
