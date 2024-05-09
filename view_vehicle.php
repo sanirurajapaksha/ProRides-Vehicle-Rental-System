@@ -34,7 +34,7 @@
             include 'includes/database.php';
             session_start();
 
-            echo $_SESSION['$role'];
+            // echo $_SESSION['$role'];
 
             if (!isset($_SESSION['$role']) || $_SESSION['$role'] == 'user') {
                 echo "<p>You do not have permission to view this page.</p>";

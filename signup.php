@@ -24,28 +24,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
 
         $sql_insert_user = "INSERT INTO user ( userid, role, first_name, last_name, username, email, password) VALUES ('?','$role', '$first_name', '$last_name', '$username', '$email', '$password')";
-        $result = mysqli_query($conn, $sql_insert_user);
+        mysqli_query($conn, $sql_insert_user);
 
-        if (mysqli_num_rows($result) > 0) {
 
-            $row = mysqli_fetch_assoc($result);
+        $_SESSION['email'] = $email;
 
-            $_SESSION['email'] = $email;
-            $_SESSION['userid'] = $row['userid'];
-            $_SESSION['role'] = $row['role'];
+        header('Location: index.php');
 
-            if ($row['role'] == 'admin') {
-                header("Location: view_vehicle.php");
-            } else {
-                header("Location: listing.php");
-            }
 
-            exit();
+        exit();
 
-        } else {
 
-            $error = "Error registering user: " . mysqli_error($conn);
-        }
     }
 }
 ?>
